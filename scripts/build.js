@@ -396,6 +396,7 @@ function createTwemoji() {
             iconId = grabTheRightIcon(rawText);
             i = index + rawText.length;
             src = options.callback(iconId, options);
+            img = null;
             if (iconId && src) {
               img = new Image();
               img.onerror = options.onerror;
@@ -414,11 +415,11 @@ function createTwemoji() {
               img.className = options.className;
               img.alt = rawText;
               img.src = src;
+              img.id = 'twemoji_new_appended_image';
               modified = true;
               fragment.appendChild(img);
             }
             if (!img) fragment.appendChild(createText(rawText, false));
-            img = null;
           }
           // is there actually anything to replace in here ?
           if (modified) {
@@ -431,7 +432,7 @@ function createTwemoji() {
             // replace the text node only, leave intact
             // anything else surrounding such text
             subnode.parentNode.replaceChild(fragment, subnode);
-            if (options.appendCallback) options.appendCallback(fragment);
+            if (options.appendCallback) options.appendCallback(img);
           }
         }
         return node;
