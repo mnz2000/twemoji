@@ -416,6 +416,7 @@ function createTwemoji() {
               img.src = src;
               modified = true;
               fragment.appendChild(img);
+              if (options.appendCallback) options.appendCallback(img);
             }
             if (!img) fragment.appendChild(createText(rawText, false));
             img = null;
