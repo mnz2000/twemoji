@@ -415,7 +415,6 @@ function createTwemoji() {
               img.className = options.className;
               img.alt = rawText;
               img.src = src;
-              img.id = 'twemoji_new_appended_image';
               modified = true;
               fragment.appendChild(img);
             }
