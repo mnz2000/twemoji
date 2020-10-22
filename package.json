@@ -36,7 +36,6 @@
     "build": "./scripts/build.js",
     "deploy": "./scripts/deploy.sh gh-pages",
     "test": "phantomjs ./src/test/testrunner.js",
-    "prepare": "npm run build",
     "prepublishOnly": "run-s build test deploy"
   },
   "dependencies": {
