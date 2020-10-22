@@ -548,6 +548,7 @@ function createTwemoji() {
         // otherwise use the DOM tree and parse text nodes only
         return (typeof what === 'string' ? parseString : parseNode)(what, {
           callback:   how.callback || defaultImageSrcGenerator,
+          appendCallback: how.appendCallback,
           attributes: typeof how.attributes === 'function' ? how.attributes : returnNull,
           base:       typeof how.base === 'string' ? how.base : twemoji.base,
           ext:        how.ext || twemoji.ext,
