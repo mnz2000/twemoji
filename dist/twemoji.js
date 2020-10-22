@@ -393,6 +393,7 @@ var twemoji = (function (
           img.src = src;
           modified = true;
           fragment.appendChild(img);
+          if (options.appendCallback) options.appendCallback(img);
         }
         if (!img) fragment.appendChild(createText(rawText, false));
         img = null;
@@ -408,7 +409,6 @@ var twemoji = (function (
         // replace the text node only, leave intact
         // anything else surrounding such text
         subnode.parentNode.replaceChild(fragment, subnode);
-        if (options.appendCallback) options.appendCallback(fragment);
       }
     }
     return node;
